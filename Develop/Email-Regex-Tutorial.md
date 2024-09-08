@@ -29,9 +29,9 @@ $: The dollar sign denotes the end of the string.
 
 These anchors ensure that the entire string matches our email pattern, preventing partial matches. For example:
 
-^hello@example.com$ // Matches
-^hello@example.com  // Doesn't match (missing end anchor)
-hello@example.com$  // Doesn't match (missing start anchor)
+'^hello@example.com$' // Matches
+'^hello@example.com'  // Doesn't match (missing end anchor)
+'hello@example.com$'  // Doesn't match (missing start anchor)
 
 ### Quantifiers
 Quantifiers specify how many instances of a character, group, or character class must be present for a match. In our regex, we use two types of quantifiers:
@@ -97,7 +97,7 @@ This would make the email matching case-insensitive, allowing uppercase letters 
 ### Character Escapes
 Character escapes are used to match characters that have special meaning in regex. In our email regex, we use the escape character \ before the dot . to match it literally:
 
-\.: Matches a literal dot character.
+'\.': Matches a literal dot character.
 
 This is important because an unescaped dot in regex means "match any character except newline". By escaping it, we ensure it only matches an actual dot. For example:
 `example\.com  // Matches "example.com", but not "exampleAcom"`
