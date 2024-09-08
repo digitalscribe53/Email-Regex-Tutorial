@@ -29,9 +29,9 @@ $: The dollar sign denotes the end of the string.
 
 These anchors ensure that the entire string matches our email pattern, preventing partial matches. For example:
 
-```^hello@example.com$ // Matches
+^hello@example.com$ // Matches
 ^hello@example.com  // Doesn't match (missing end anchor)
-hello@example.com$  // Doesn't match (missing start anchor)```
+hello@example.com$  // Doesn't match (missing start anchor)
 
 ### Quantifiers
 Quantifiers specify how many instances of a character, group, or character class must be present for a match. In our regex, we use two types of quantifiers:
@@ -40,8 +40,8 @@ Quantifiers specify how many instances of a character, group, or character class
 {2,6}: Matches between 2 and 6 occurrences of the preceding element.
 
 Examples:
-```[a-z0-9_\.-]+ // Matches "hello", "hello123", "hello_world", but not ""
-[a-z\.]{2,6}  // Matches "com", "co.uk", but not "a" or "toolong"```
+`[a-z0-9_\.-]+ // Matches "hello", "hello123", "hello_world", but not ""`
+`[a-z\.]{2,6}  // Matches "com", "co.uk", but not "a" or "toolong"`
 
 ### Grouping Constructs
 Grouping constructs are used to group parts of the regex together. In our email regex, we use parentheses () to create three groups:
@@ -51,13 +51,13 @@ Grouping constructs are used to group parts of the regex together. In our email 
 ([a-z\.]{2,6}): The top-level domain
 
 These groups help organize the regex and can be used for capturing specific parts of the match. For example:
-```let email = "user123@example.com";
-let regex = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-let match = email.match(regex);
+`let email = "user123@example.com";`
+`let regex = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;`
+`let match = email.match(regex);`
 
-console.log(match[1]); // Output: "user123"
-console.log(match[2]); // Output: "example"
-console.log(match[3]); // Output: "com"```
+`console.log(match[1]); // Output: "user123"`
+`console.log(match[2]); // Output: "example"`
+`console.log(match[3]); // Output: "com"`
 
 ### Bracket Expressions
 Bracket expressions, also known as character sets, match any single character from a set of characters. In our regex, we use several bracket expressions:
@@ -67,9 +67,9 @@ Bracket expressions, also known as character sets, match any single character fr
 [a-z\.]: Matches any lowercase letter or dot.
 
 Examples:
-```[a-z0-9_\.-] // Matches "a", "3", "_", ".", "-", but not "A" or "@"
-[\da-z\.-]   // Matches "1", "a", ".", "-", but not "_" or "A"
-[a-z\.]      // Matches "a", ".", but not "1" or "-"```
+`[a-z0-9_\.-] // Matches "a", "3", "_", ".", "-", but not "A" or "@"`
+`[\da-z\.-]   // Matches "1", "a", ".", "-", but not "_" or "A"`
+`[a-z\.]      // Matches "a", ".", but not "1" or "-"`
 
 ### Character Classes
 Character classes are predefined sets of characters. In our regex, we use one character class:
@@ -100,8 +100,8 @@ Character escapes are used to match characters that have special meaning in rege
 \.: Matches a literal dot character.
 
 This is important because an unescaped dot in regex means "match any character except newline". By escaping it, we ensure it only matches an actual dot. For example:
-```example\.com  // Matches "example.com", but not "exampleAcom"
-example.com   // Matches "example.com", "exampleAcom", "exampleBcom", etc.```
+`example\.com  // Matches "example.com", but not "exampleAcom"`
+`example.com   // Matches "example.com", "exampleAcom", "exampleBcom", etc.`
 
 ## Author
 This tutorial was created by @digitalscribe53 to help developers understand and use regular expressions for email validation. Visit my Github to see what else I've been working on! 
